@@ -1,0 +1,19 @@
+{
+    "name": "tanmo/oos-php-sdk",
+    "description": "Ctyun oss php sdk",
+    "type": "library",
+    "require": {},
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tanmo",
+            "email": "410536770@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Tanmo\\OOS\\": "src/OOS"
+        }
+    }
+}
