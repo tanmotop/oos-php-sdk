@@ -1284,6 +1284,26 @@ class OosClient
     }
 
     /**
+     * Gets Object metadata
+     *
+     * @param string $bucket bucket name
+     * @param string $object object name
+     * @param string $options Checks out the SDK document for the detail
+     * @return array
+     * @throws OosException
+     */
+    public function getObjectMeta($bucket, $object, $options = NULL)
+    {
+        $this->precheckCommon($bucket, $object, $options);
+        $options[self::OOS_BUCKET] = $bucket;
+        $options[self::OOS_METHOD] = self::OOS_HTTP_HEAD;
+        $options[self::OOS_OBJECT] = $object;
+        $response = $this->auth($options);
+        $result = new HeaderResult($response);
+        return $result->getData();
+    }
+
+    /**
      * Gets the part size according to the preferred part size.
      * If the specified part size is too small or too big, it will return a min part or max part size instead.
      * Otherwise returns the specified part size.
